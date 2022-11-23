@@ -19,10 +19,13 @@ def welcome():
 
     :return: Does not return anything.
     """
-    # TODO: Your code here
-    pass
+    title = ("Hotel review")
+    number_of_dashes = (len(title)) * ("-")
+    print(number_of_dashes)
+    print(title)
+    print(number_of_dashes)
 
-ll
+
 def error(msg):
     """
     Task 2: Display an error message.
@@ -34,8 +37,8 @@ def error(msg):
     :param msg: a string containing an error message
     :return: does not return anything
     """
-    # TODO: Your code here
-    pass # can remove
+
+    print((f"Error! {msg}"))
 
 
 def progress(operation, value):
@@ -56,8 +59,18 @@ def progress(operation, value):
     :param value: an integer indicating the amount of progress made
     :return: does not return anything
     """
-    # TODO: Your code here
-    pass # can remove
+
+    if value == 0:
+        status = "initiated"
+
+    elif value in range(1, 100):
+        status = f"in progress({value}% completed)"
+    elif value == 100:
+        status = "completed"
+    else:
+        print("done")
+
+    print(f"Operation: {operation} [{status}].")
 
 
 def main_menu():
@@ -77,8 +90,23 @@ def main_menu():
 
     :return: an integer for a valid selection
     """
-    # TODO: Your code here
-    pass # can remove
+
+    print("Main menu:\n\n[1] Process Data\n[2] Visualise Data\n[3] Export Data\n[4] Exit")
+    print("\n Please select an option")
+    option = int(input())
+
+    if option == 1:
+        print("You have selected Option[1] Process Data")
+    elif option == 2:
+        print("You have selected Option[2] Visualise Data")
+    elif option == 3:
+        print("You have selected Option[3] Export Data")
+    elif option == 4:
+        print("You have selected Option[4] Exit")
+    else:
+        print("Option not available, try again")
+
+        return option
 
 
 def sub_menu(variant=0):
@@ -109,8 +137,26 @@ def sub_menu(variant=0):
 
     :return: 0 if invalid selection otherwise an integer for a valid selection
     """
-    # TODO: Your code here
-    pass # can remove
+    if variant == 1:
+        print("Please select an option:\n")
+        print("[1] Reviews for Hotel\n[2] Reviews for Dates\n[3] Reviews for Nationality\n[4] Reviews Summary")
+        print("\n")
+        selected = int(input())
+        return selected
+    elif variant == 2:
+        print("Please select an option:\n")
+        print("[1] Positive/Negative Pie Chart\n[2] Reviews Per Nationality Chart\n[3] Animated Summary")
+        print("\n")
+        selected_option = int(input())
+        return selected_option
+    elif variant == 3:
+        print("Please select an option:\n")
+        print("[1] All Reviews\n[2] Reviews for Specific Hotel")
+        print("\n")
+        selected_option_1 = int(input())
+        return selected_option_1
+    else:
+        print(f"Option {variant} not available")
 
 
 def total_reviews(num_reviews):
@@ -126,9 +172,7 @@ def total_reviews(num_reviews):
     :param num_reviews: the total number of reviews in the data set
     :return: Does not return anything
     """
-    # TODO: Your code here
-    pass # can remove
-
+    print(f"There are {num_reviews} reviews in the data set.")
 
 def hotel_name():
     """
@@ -139,8 +183,9 @@ def hotel_name():
 
     :return: the name of a hotel
     """
-    # TODO: Your code here
-    pass # can remove
+    print("Enter the name of the Hotel you would like to review")
+    hotel = input()
+    return hotel
 
 
 def review_dates():
@@ -157,8 +202,11 @@ def review_dates():
 
     :return: a list of review dates
     """
-    # TODO: Your code here
-    pass # can remove
+    print("Please enter date of review (mm/dd/yyyy)")
+    review_date = input()
+    return review_date
+
+
 
 
 def display_review(review, cols=None):
@@ -188,11 +236,13 @@ def display_review(review, cols=None):
     :param cols: A list of integer values that represent column indexes
     :return: Does not return anything
     """
-    # TODO: Your code here
-    pass # can remove
 
 
-def display_reviews():
+
+
+
+
+def display_reviews(reviews, cols=None):
     """
     Task 10: Display each review in the specified list of reviews.
     
@@ -221,5 +271,10 @@ def display_reviews():
     :param cols: A list of integer values that represent column indexes
     :return: Does not return anything
     """
-    # TODO: Your code here
-    pass # can remove
+    list = reviews
+
+    for hotels in list:
+        if cols is None:
+            print(hotels)
+        else:
+            print(hotels[cols])
